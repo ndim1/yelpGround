@@ -1,0 +1,48 @@
+<% layout ('layouts/boilerplate') %>
+    <div style="width: 100%;height: 300px;" id="map"></div>
+    <h1>All Campgrounds</h1>
+    <a href="/campground/new">add campgrounds</a>
+    <% for( let products of product) { %>
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <% if(products.images.length) {%>
+                        <img class="img-fluid" src="<%=products.images[0].url%>">
+                        <% }else { %>
+                            <img class="img-fluid"
+                                src="https://res.cloudinary.com/yelpground/image/upload/v1632918355/yelpground/higb1dcmqecwydyrzpen.jpg">
+                            <%} %>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%=products.title%>
+                        </h5>
+                        <h5 class="card-title">
+                            <%= products.location %>
+                        </h5>
+                        <p class="card-text">
+                            <%= products.description %>
+                        </p>
+                        <p class="card-text">
+                            $<%= products.price %>/night
+                        </p>
+
+                        <a href="/campground/<%=products._id%>"> <button class="btn btn-primary">
+                                View -> <%= products.title %>
+                            </button> </a>
+                        <% if(curentUser) { %>
+                            <a href="/campground/new"><button class="btn btn-warning">Make new Campground</button></a>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <%} %>
+            <script>
+                const mapToken = '<%- process.env.MAPBOX_TOKEN%>'; 
+                //const product = { features:<% -JSON.stringify(product) %>}
+            </script>
+
+            <script src="/javascript/map.js"></script>

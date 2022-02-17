@@ -1,0 +1,51 @@
+<% layout ('layouts/boilerplate') %>
+
+    <body>
+        <div class="row  ">
+
+            <div class="col-md-6 offset-md-3">
+                <div class="card shadow p-3">
+                    <h1 class="text-center">New Campground</h1>
+                    <form action="/campground" method="POST" class="needs-validation" novalidate
+                        enctype="multipart/form-data">
+                 
+                        <div class="mb-3">
+                            <label class="form-label" for="title">Add title</label>
+                            <input class="form-control" type="text" id="title" name="product[title]" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="location">Add location</label>
+                            <input class="form-control" type="text" id="location" name="product[location]" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+
+                        <label class="form-label" for="price">Add Price</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">$</span>
+                            <input id="price" type="text" name="product[price]" class="form-control" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Write the Description</label>
+                            <textarea name="product[description]" class="form-control" id="exampleFormControlTextarea1"
+                                required></textarea>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Default file input example</label>
+                            <input class="form-control" type="file" id="formFile" name="image" multiple>
+                        </div>
+                        <button class="btn btn-primary mb-3">Create new</button>
+                    </form>
+                </div>
+            </div>
+        </div>
